@@ -21,8 +21,8 @@ void printArray(int arr[], int n) {
 }
 
 int main() {
+  int size = 5;
   int array[] = {12, 8, 5, 16, 2};
-  int size = sizeof(array) / sizeof(array[0]);
 
   cout << "Unsorted array: ";
   printArray(array, size);
