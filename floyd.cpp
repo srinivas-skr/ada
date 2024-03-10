@@ -28,3 +28,12 @@ int main() {
 
     return 0;
 }
+
+/*output 
+Enter the number of cities: 4
+Enter the distances between cities (use 999 for infinity):
+0 3 6 15
+3 0 2 999
+6 2 0 1
+15 999 1 0
+*/
