@@ -42,3 +42,7 @@ int main(){
     else
         cout<<"Number of solutions: "<<count;
 }
+
+/* output
+Enter number of queens: 4
+    */
