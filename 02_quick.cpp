@@ -1,6 +1,5 @@
 #include<iostream>
 using namespace std;
-
 int dividearray (int arr[], int lb, int ub)   // lb= lower bound and ub= upper bound
 {
 	int pivot= arr[lb];
@@ -16,7 +15,6 @@ int dividearray (int arr[], int lb, int ub)   // lb= lower bound and ub= upper b
 	swap(arr[lb],arr[i]);	
 	return i;
 }
-
 
 void quicksort (int arr[], int lb, int ub)
 {
@@ -36,14 +34,12 @@ void printarray(int arr[], int size)
  }
 cout<< endl ;
 }
-
 int main()
 {
 	int arr[]= {5, 3, 1, 9, 8, 2, 4, 7};
 	int n= sizeof(arr)/sizeof(arr[0]);
 	cout<< "original array: ";
 	printarray(arr,n);
-	
 	// sorted array
 	quicksort(arr, 0, n-1);
 	cout<<"sorted array: ";
