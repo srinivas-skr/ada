@@ -1,58 +1,34 @@
 #include <iostream>
-#include <vector>
-#include <algorithm>
-#include <chrono>
-
+#include <string>
+#include <unordered_map>
 using namespace std;
+int horspool_search(string& text, string& pattern) {
+    int n = text.size(), m = pattern.size();
+    if (n < m) return -1;
 
-class Horspool {
-public:
-    Horspool(const string& pattern) : pattern(pattern), table(256, pattern.size()) {
-        for (int i = 0; i < pattern.size() - 1; ++i)
-            table[pattern[i]] = pattern.size() - 1 - i;
-    }
+    unordered_map<char, int> bad_char_shift;
+    for (int i = 0; i < m - 1; ++i)
+        bad_char_shift[pattern[i]] = m - 1 - i;
 
-    int search(const string& text) {
-        int m = pattern.size();
-        int n = text.size();
-        int i = m - 1;
-
-        while (i < n) {
-            int k = 0;
-            while (k < m && (pattern[m - 1 - k] == text[i - k]))
-                k++;
-
-            if (k == m)
-                return i - m + 1;
-            else
-                i += max(1, m - 1 - table[text[i]]);
+    for (int i = m - 1; i < n;) {
+        int j = m - 1;
+        while (j >= 0 && text[i] == pattern[j]) {
+            --i;
+            --j;
         }
-
-        return -1;
+        if (j < 0) return i + 1;
+        i += bad_char_shift[text[i]] > 0 ? bad_char_shift[text[i]] : m;
     }
-
-private:
-    string pattern;
-    vector<int> table;
-};
+    return -1;
+}
 
 int main() {
     string text = "This is a sample text to search for a pattern.";
-    string pattern = "This";
-
-    Horspool horspool(pattern);
-
-    auto start = chrono::high_resolution_clock::now();
-    int result = horspool.search(text);
-    auto end = chrono::high_resolution_clock::now();
-
-    if (result == -1)
-        cout << "\nPattern not found\n";
+    string pattern = "s";
+    int result = horspool_search(text, pattern);
+    if (result != -1)
+        cout << "Pattern found at position " << result << endl;
     else
-        cout << "Pattern found at " << result + 1 << " position\n";
-
-    auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start).count();
-    cout << "Time of Horsepool's Algorithm: " << duration << " microseconds\n";
-
+        cout << "Pattern not found in the text." << endl;
     return 0;
 }
