@@ -2,11 +2,13 @@
 #include <string>
 #include <unordered_map>
 using namespace std;
+
 int horspool_search(string& text, string& pattern) {
-    int n = text.size(), m = pattern.size();
+    int n = text.size();
+    int m = pattern.size();
     if (n < m) return -1;
 
-    unordered_map<char, int> bad_char_shift;
+unordered_map<char, int> bad_char_shift;
     for (int i = 0; i < m - 1; ++i)
         bad_char_shift[pattern[i]] = m - 1 - i;
 
@@ -24,7 +26,7 @@ int horspool_search(string& text, string& pattern) {
 
 int main() {
     string text = "This is a sample text to search for a pattern.";
-    string pattern = "s";
+    string pattern = "sample";
     int result = horspool_search(text, pattern);
     if (result != -1)
         cout << "Pattern found at position " << result << endl;
