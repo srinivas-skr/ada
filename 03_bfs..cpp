@@ -21,6 +21,7 @@ int main() {
         q[i] = 0;
         visited[i] = 0;
     }
+    
     cout << "\n Enter graph data in matrix form:\n";
     for (i = 1; i <= n; i++)
         for (j = 1; j <= n; j++)
