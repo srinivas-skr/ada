@@ -41,15 +41,12 @@ int main() {
 
 /* output
 Enter the number of vertices: 4
-
 Enter graph data in matrix form:
 0 1 1 0
 1 0 0 1
 1 0 0 0
 0 1 0 0
-
 Enter the starting vertex: 1
-
 The nodes which are reachable are:
 1   2   3   4
 */
