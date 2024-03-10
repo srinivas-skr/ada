@@ -32,7 +32,8 @@ int main() {
     vector<int> arr = {4, 2, 9, 5, 100, 8, 3, 7};
     heapSort(arr);
     cout << "Sorted array: ";
-    for (int i : arr) cout << i << " ";
+    for (int i : arr)
+    cout << i << " ";
     cout << endl;
     return 0;
 }
