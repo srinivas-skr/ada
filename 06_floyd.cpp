@@ -9,7 +9,7 @@ int main() {
     cout << "Enter the number of cities: ";
     cin >> n;
 
-    cout << "Enter the distances between cities (use 999 for infinity):\n";
+    cout << "Enter the distances between cities (use 999 for infinity and 0 for loop):\n";
     for (int i = 1; i <= n; i++)
         for (int j = 1; j <= n; j++)
             cin >> distances[i][j];
