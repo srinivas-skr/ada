@@ -39,7 +39,7 @@ int main() {
     return 0;
 }
 
-/* 
+/* output
 Enter the number of vertices: 4
 
 Enter graph data in matrix form:
