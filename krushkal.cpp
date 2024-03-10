@@ -2,47 +2,49 @@
 #include <climits>
 using namespace std;
 
-int minCost, cost[100][100], parent[100], i, j, x, y, n;
+const int MAX_VERTICES = 100;
+
+int minCost, cost[MAX_VERTICES][MAX_VERTICES], parent[MAX_VERTICES], n;
 
 void findMin();
-int checkCycle(int x, int y);
+int find(int vertex);
+void unionVertices(int x, int y);
 
 int main() {
     int count = 0, totalCost = 0, flag = 0;
-
     cout << "Enter the number of towns: ";
     cin >> n;
-
     cout << "Enter the cost matrix" << endl;
     cout << "Enter 999 for No edges and self-loops" << endl;
 
-    for (i = 1; i <= n; i++)
-        for (j = 1; j <= n; j++)
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < n; j++)
             cin >> cost[i][j];
+
+    for (int i = 0; i < MAX_VERTICES; i++) // Initialize parent array
+        parent[i] = 0;
 
     while (count != n - 1 && minCost != 999) {
         findMin();
-        flag = checkCycle(x, y);
+        flag = find(x) != find(y);
 
-        if (flag == 1) {
+        if (flag) {
             cout << x << " -----> " << y << " == " << cost[x][y] << endl;
-            count++;
             totalCost += cost[x][y];
+            ++count;
+            unionVertices(x, y);
         }
-
         cost[x][y] = cost[y][x] = 999;
     }
-
     cout << "The total cost of the least expensive tree = " << totalCost << endl;
-
     return 0;
 }
 
 void findMin() {
     minCost = INT_MAX;
 
-    for (i = 1; i <= n; i++)
-        for (j = 1; j <= n; j++)
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < n; j++)
             if (cost[i][j] < minCost && i != j) {
                 minCost = cost[i][j];
                 x = i;
@@ -50,17 +52,16 @@ void findMin() {
             }
 }
 
-int checkCycle(int x, int y) {
-    if ((parent[x] == parent[y]) && (parent[x] != 0))
-        return 0;
-    else if (parent[x] == 0 && parent[y] == 0)
-        parent[x] = parent[y] = x;
-    else if (parent[x] == 0)
-        parent[x] = parent[y];
-    else if (parent[x] != parent[y])
-        parent[y] = parent[x];
+int find(int vertex) {
+    while (parent[vertex] != 0)
+        vertex = parent[vertex];
+    return vertex;
+}
 
-    return 1;
+void unionVertices(int x, int y) {
+    int parentX = find(x);
+    int parentY = find(y);
+    parent[parentX] = parentY;
 }
 
 
@@ -72,8 +73,3 @@ Enter 999 for No edges and self-loops
 1 0 2 4
 3 2 0 5
 999 4 5 0
-    0  1  2  3
-0 | 0  1  3  ∞
-1 | 1  0  2  4
-2 | 3  2  0  5
-3 | ∞  4  5  0
