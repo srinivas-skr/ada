@@ -6,7 +6,6 @@ int main() {
 
     cout << "No. of vertices: ";
     cin >> n;
-    
     cout << "\nCost matrix: ";
     for(i = 1; i <= n; i++)
         for(j = 1; j <= n; j++)
@@ -14,7 +13,6 @@ int main() {
 
     cout << "\nSource vertex: ";
     cin >> v;
-
     for(i = 1; i <= n; i++) {
         s[i] = 0;
         d[i] = a[v][i];
@@ -22,7 +20,6 @@ int main() {
 
     d[v] = 0;
     s[v] = 1;
-
     for(k = 2; k <= n; k++) {
         min = 99;
         for(i = 1; i <= n; i++) {
@@ -31,9 +28,9 @@ int main() {
                 u = i;
             }
         }
+        
 
         s[u] = 1;
-
         for(i = 1; i <= n; i++) {
             if(s[i] == 0) {
                 if(d[i] > (d[u] + a[u][i]))
