@@ -1,55 +1,54 @@
 #include <iostream>
-#include <list>
-#include <queue>
-#include <vector>
-
 using namespace std;
 
-class Graph {
-private:
-    int vertices;
-    vector<list<int>> adjacencyList;
+int a[20][20], q[20], visited[20], n, i, j, f = 0, r = -1;
 
-public:
-    Graph(int V) : vertices(V), adjacencyList(V) { }
-
-    void addEdge(int from, int to) {
-        adjacencyList[from].push_back(to);
+void bfs(int v) {
+    for (i = 1; i <= n; i++)
+        if (a[v][i] && !visited[i])
+            q[++r] = i;
+    if (f <= r) {
+        visited[q[f]] = 1;
+        bfs(q[f++]);
     }
-
-    void BFS(int startVertex) {
-        vector<bool> visited(vertices, false);
-        queue<int> q;
-
-        visited[startVertex] = true;
-        q.push(startVertex);
-
-        while (!q.empty()) {
-            int currentVertex = q.front();
-            cout << currentVertex << " ";
-            q.pop();
-
-            for (int neighbor : adjacencyList[currentVertex]) {
-                if (!visited[neighbor]) {
-                    visited[neighbor] = true;
-                    q.push(neighbor);
-                }
-            }
-        }
-    }
-};
+}
 
 int main() {
-    Graph g(6);
+    int v;
+    cout << "\n Enter the number of vertices:";
+    cin >> n;
+    for (i = 1; i <= n; i++) {
+        q[i] = 0;
+        visited[i] = 0;
+    }
+    cout << "\n Enter graph data in matrix form:\n";
+    for (i = 1; i <= n; i++)
+        for (j = 1; j <= n; j++)
+            cin >> a[i][j];
+    cout << "\n Enter the starting vertex:";
+    cin >> v;
+    bfs(v);
 
-    g.addEdge(0, 1);
-    g.addEdge(0, 2);
-    g.addEdge(1, 3);
-    g.addEdge(2, 4);
-    g.addEdge(2, 5);
-
-    cout << "BFS starting from vertex 0: ";
-    g.BFS(0);
-
+    cout << "\n The nodes which are reachable are:\n";
+    for (i = 1; i <= n; i++)
+        if (visited[i])
+            cout << i << "\t";
+        else
+            cout << "\n Bfs is not possible";
     return 0;
 }
+
+/* 
+Enter the number of vertices: 4
+
+Enter graph data in matrix form:
+0 1 1 0
+1 0 0 1
+1 0 0 0
+0 1 0 0
+
+Enter the starting vertex: 1
+
+The nodes which are reachable are:
+1   2   3   4
+*/
