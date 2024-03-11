@@ -31,12 +31,8 @@ int main() {
     cin >> array[i];
   }
 
-  cout << "Unsorted array: ";
-  printArray(array, size);
-
   selectionSort(array, size);
   cout << "Sorted array: ";
   printArray(array, size);
-
   return 0;
 }
