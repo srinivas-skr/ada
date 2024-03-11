@@ -1,11 +1,9 @@
-#include<iostream>
-#include<algorithm>  
+#include <iostream>
+#include <algorithm>
 using namespace std;
 
-void MergeSort(int arr[], int left , int right)
-{
-    if(left < right)
-    {
+void MergeSort(int arr[], int left, int right) {
+    if (left < right) {
         int mid = left + (right - left) / 2;
         MergeSort(arr, left, mid);
         MergeSort(arr, mid + 1, right);
@@ -13,24 +11,29 @@ void MergeSort(int arr[], int left , int right)
     }
 }
 
-void printArray(int arr[], int size)
-{
-    for(int a = 0; a < size; a++)
-    {
-        cout << arr[a] << " " ;
+void printArray(int arr[], int size) {
+    for (int a = 0; a < size; a++) {
+        cout << arr[a] << " ";
     }
     cout << endl;
 }
 
-int main()
-{
-    int arr[] = {15, 5, 24, 8, 1, 3, 16, 10, 20};
-    int size = sizeof(arr) / sizeof(arr[0]);
+int main() {
+    int size;
+    cout << "Enter the number of elements in the array: ";
+    cin >> size;
+    
+    int arr[size];
+    cout << "Enter " << size << " integers separated by spaces: ";
+    for (int i = 0; i < size; i++) {
+        cin >> arr[i];
+    }
+    
     cout << "Original Array: ";
-    printArray(arr, size); // corrected variable name
+    printArray(arr, size);
 
-    MergeSort(arr, 0, size - 1); // corrected variable name
+    MergeSort(arr, 0, size - 1);
     cout << "Sorted Array: ";
-    printArray(arr, size); // corrected variable name
+    printArray(arr, size);
     return 0;
 }
