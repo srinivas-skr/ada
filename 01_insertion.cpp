@@ -28,14 +28,11 @@ int main() {
   cout << "Enter the size of the array: "; // Modified to prompt user for input
   cin >> size;
 
-  cout << "Enter " << size << " elements of the array: "; // Modified to prompt user for input
+  cout << "Enter " << size << " elements of the array: "; 
   for (int i = 0; i < size; i++) {
     cin >> array[i];
   }
-
-  cout << "Unsorted array: ";
-  printArray(array, size);
-
+  
   insertionSort(array, size);
   cout << "Sorted array: ";
   printArray(array, size);
