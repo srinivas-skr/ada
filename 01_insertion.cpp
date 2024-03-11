@@ -21,15 +21,15 @@ void printArray(int arr[], int n) {
   cout << endl;
 }
 
-int main() {
-  int size = 5;
+int main() 
+{
   int array[] = {12, 8, 5, 16, 2};
+  int size = sizeof(array) / sizeof(array[0]); // Changed arr to array
 
   cout << "Unsorted array: ";
   printArray(array, size);
 
   insertionSort(array, size);
-
   cout << "Sorted array: ";
   printArray(array, size);
   return 0;
