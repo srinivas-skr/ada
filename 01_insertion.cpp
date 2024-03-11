@@ -21,10 +21,17 @@ void printArray(int arr[], int n) {
   cout << endl;
 }
 
-int main() 
-{
-  int array[] = {12, 8, 5, 16, 2};
-  int size = sizeof(array) / sizeof(array[0]); // Changed arr to array
+int main() {
+  int array[100]; // Assuming maximum size of the array is 100
+  int size;
+  
+  cout << "Enter the size of the array: "; // Modified to prompt user for input
+  cin >> size;
+
+  cout << "Enter " << size << " elements of the array: "; // Modified to prompt user for input
+  for (int i = 0; i < size; i++) {
+    cin >> array[i];
+  }
 
   cout << "Unsorted array: ";
   printArray(array, size);
