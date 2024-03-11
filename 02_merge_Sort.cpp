@@ -20,17 +20,14 @@ void printArray(int arr[], int size) {
 
 int main() {
     int size;
-    cout << "Enter the number of elements in the array: ";
+    cout << "Enter size of the array: ";
     cin >> size;
     
     int arr[size];
-    cout << "Enter " << size << " integers separated by spaces: ";
+    cout << "Enter " << size << " numbers ";
     for (int i = 0; i < size; i++) {
         cin >> arr[i];
     }
-    
-    cout << "Original Array: ";
-    printArray(arr, size);
 
     MergeSort(arr, 0, size - 1);
     cout << "Sorted Array: ";
