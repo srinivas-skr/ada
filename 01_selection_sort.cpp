@@ -21,8 +21,15 @@ void printArray(int arr[], int n) {
 }
 
 int main() {
-  int array[] = {12, 8, 5, 16, 2};
-  int size = sizeof(array) / sizeof(array[0]);
+  int size;
+  cout << "Enter the size of the array: ";
+  cin >> size;
+
+  int array[size];
+  cout << "Enter " << size << " elements: ";
+  for (int i = 0; i < size; i++) {
+    cin >> array[i];
+  }
 
   cout << "Unsorted array: ";
   printArray(array, size);
@@ -30,5 +37,6 @@ int main() {
   selectionSort(array, size);
   cout << "Sorted array: ";
   printArray(array, size);
+
   return 0;
 }
