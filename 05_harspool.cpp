@@ -8,7 +8,7 @@ int horspool_search(string& text, string& pattern) {
     int m = pattern.size();
     if (n < m) return -1;
 
-unordered_map<char, int> bad_char_shift;
+    unordered_map<char, int> bad_char_shift;
     for (int i = 0; i < m - 1; ++i)
         bad_char_shift[pattern[i]] = m - 1 - i;
 
@@ -25,8 +25,12 @@ unordered_map<char, int> bad_char_shift;
 }
 
 int main() {
-    string text = "This is a sample text to search for a pattern.";
-    string pattern = "sample";
+    string text, pattern;
+    cout << "Enter the text: ";
+    getline(cin, text);
+    cout << "Enter the pattern to search for: ";
+    getline(cin, pattern);
+
     int result = horspool_search(text, pattern);
     if (result != -1)
         cout << "Pattern found at position " << result << endl;
