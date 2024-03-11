@@ -38,13 +38,21 @@ void printarray(int arr[], int size)
 
 int main()
 {
-    int arr[] = {5, 3, 1, 9, 8, 2, 4, 7};
-    int size = sizeof(arr) / sizeof(arr[0]);
-    cout << "original array: ";
+    int size;
+    cout << "Enter size of array: ";
+    cin >> size;
+
+    int arr[size];
+    cout << "Enter " << size << " numbers: ";
+    for(int i = 0; i < size; i++)
+    {
+        cin >> arr[i];
+    }
+
+    cout << "Original array: ";
     printarray(arr, size);
- 
     quicksort(arr, 0, size - 1);     // sorted array
-    cout << "sorted array: ";
+    cout << "Sorted array: ";
     printarray(arr, size);
     return 0;
 }
