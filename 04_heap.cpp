@@ -29,11 +29,20 @@ void heapSort(vector<int> &arr) {
 }
 
 int main() {
-    vector<int> arr = {4, 2, 9, 5, 100, 8, 3, 7};
+    cout << "Enter the size of array: ";
+    int size;
+    cin >> size;
+    
+    cout << "Enter " << size << " numbers ";
+    vector<int> arr(size);
+    for (int i = 0; i < size; ++i) {
+        cin >> arr[i];
+    }
+
     heapSort(arr);
     cout << "Sorted array: ";
     for (int i : arr)
-    cout << i << " ";
+        cout << i << " ";
     cout << endl;
     return 0;
 }
