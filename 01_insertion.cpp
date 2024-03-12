@@ -22,11 +22,11 @@ void printArray(int arr[], int n) {
 }
 
 int main() {
-  int array[100]; // Assuming maximum size of the array is 100
   int size;
-  
   cout << "Enter the size of the array: "; // Modified to prompt user for input
   cin >> size;
+
+  int array[size];
 
   cout << "Enter " << size << " elements of the array: "; 
   for (int i = 0; i < size; i++) {
