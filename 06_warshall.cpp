@@ -27,7 +27,7 @@ void warshall(int a[20][20], int n) {    // Function definition
             for (int j = 0; j < n; j++)
                 a[i][j] = a[i][j] || (a[i][k] && a[k][j]);
 
-    cout << "\nTransitive closure matrix: " << endl;    // Printing the transitive closure matrix
+    cout << "\nTransitive closure matrix: \n";    // Printing the transitive closure matrix
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++)
             cout << a[i][j] << "\t";
