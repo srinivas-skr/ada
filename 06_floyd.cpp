@@ -6,7 +6,7 @@ const int INF = 999;
 int main() {
     int distances[10][10], n;
 
-    cout << "Enter the number of cities: ";
+    cout << "Enter the number of cities: \n";
     cin >> n;
 
     cout << "Enter the distances between cities (use 999 for infinity and 0 for loop):\n";
@@ -19,13 +19,12 @@ int main() {
             for (int j = 1; j <= n; j++)
                 distances[i][j] = min(distances[i][j], distances[i][k] + distances[k][j]);
 
-    cout << "\nShortest paths between cities:\n";
+    cout << "Shortest paths between cities:\n";
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= n; j++)
             cout << distances[i][j] << "\t";
         cout << "\n";
     }
-
     return 0;
 }
 
