@@ -22,14 +22,14 @@ int main() {
     cout << "Enter size of the array: ";
     cin >> size;
     
-    int arr[size];
+    int array[size];
     cout << "Enter " << size << " numbers ";
     for (int i = 0; i < size; i++) {
-        cin >> arr[i];
+        cin >> array[i];
     }
 
-    MergeSort(arr, 0, size - 1);
+    MergeSort(array, 0, size - 1);
     cout << "Array after merge sort: ";
-    printArray(arr, size);
+    printArray(array, size);
     return 0;
 }
