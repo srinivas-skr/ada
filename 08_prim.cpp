@@ -39,7 +39,7 @@ int main() {
 }
 
 /* output
-ow many vertices? 4
+how many vertices? 4
 Enter cost matrix: 
 0 10 20 0
 10 0 30 5
