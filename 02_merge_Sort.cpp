@@ -2,12 +2,12 @@
 #include <algorithm>
 using namespace std;
 
-void MergeSort(int arr[], int lowerBound, int upperBound) {
-    if (lowerBound < upperBound) {
-        int mid = lowerBound + (upperBound - lowerBound) / 2;
-        MergeSort(arr, lowerBound, mid);
-        MergeSort(arr, mid + 1, upperBound);
-        inplace_merge(arr + lowerBound, arr + mid + 1, arr + upperBound + 1); // to merge two sorted sub-arrays
+void MergeSort(int arr[], int lb, int ub) {
+    if (lb < ub) {
+        int mid = lb + (ub - lb) / 2;
+        MergeSort(arr, lb, mid);
+        MergeSort(arr, mid + 1, ub);
+        inplace_merge(arr + lb, arr + mid + 1, arr + ub + 1); // to merge two sorted sub-arrays
     }
 }
 
@@ -23,7 +23,7 @@ int main() {
     cin >> size;
     
     int array[size];
-    cout << "Enter " << size << " numbers ";
+    cout << "Enter " << size << " numbers: ";
     for (int i = 0; i < size; i++) {
         cin >> array[i];
     }
