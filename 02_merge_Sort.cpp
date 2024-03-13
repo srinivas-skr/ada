@@ -15,7 +15,6 @@ void printArray(int arr[], int n) {
     for (int a = 0; a < n; a++) {
         cout << arr[a] << " ";
     }
-    cout << endl;
 }
 
 int main() {
