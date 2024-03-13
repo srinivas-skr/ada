@@ -41,15 +41,15 @@ int main()
     cout << "Enter size of  the array: ";
     cin >> size;
     
-    int arr[size];
+    int array[size];
     cout << "Enter " << size << " numbers: ";
     for(int i = 0; i < size; i++)
     {
-        cin >> arr[i];
+        cin >> array[i];
     }
     
-    quicksort(arr, 0, size - 1);     // sorted array
+    quicksort(array, 0, size - 1);     // sorted array
     cout << "Sorted array: ";
-    printarray(arr, size);
+    printarray(array, size);
     return 0;
 }
