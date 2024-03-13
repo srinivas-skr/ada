@@ -17,9 +17,7 @@ int main() {
         }
     }
     cout << endl;
-
-    // Call the function to compute and print the transitive closure
-    warshall(a, n);
+    warshall(a, n); // Call the function to compute and print the transitive closure
     return 0;
 }
 
