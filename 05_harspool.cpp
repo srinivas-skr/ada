@@ -25,11 +25,8 @@ int horspool_search(string& text, string& pattern) {
 }
 
 int main() {
-    string text, pattern;
-    cout << "Enter the text: ";
-    getline(cin, text);
-    cout << "Enter the pattern to search for: ";
-    getline(cin, pattern);
+    string text = "This is a sample text for testing the algorithm.";
+    string pattern = "sample";
 
     int result = horspool_search(text, pattern);
     if (result != -1)
