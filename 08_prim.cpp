@@ -22,14 +22,14 @@ void prim() {
         visited[b] = 1;
         count++;
     }
-    cout << "\nTotal cost of MST is " << cost;
+    cout << "Total cost of MST is " << cost;
 }
 
 int main() {
-    cout << "How many vertices? ";
+    cout << "How many vertices? \n";
     cin >> n;
     
-    cout << "\nEnter cost matrix: ";
+    cout << "Enter cost matrix: \n";
     for (i = 1; i <= n; i++) {
         for (j = 1; j <= n; j++)
             cin >> c[i][j];
@@ -41,8 +41,8 @@ int main() {
 /* output
 how many vertices? 4
 Enter cost matrix: 
-0 10 20 0
-10 0 30 5
-20 30 0 15
-0 5 15 0
+0 1 2 3
+1 0 4 5
+2 4 0 6
+3 5 6 0
 */
