@@ -12,7 +12,7 @@ void MergeSort(int arr[], int lowerBound, int upperBound) {
 }
 
 void printArray(int arr[], int n) {
-    for (int a = 0; a < size; a++) {
+    for (int a = 0; a < n; a++) {
         cout << arr[a] << " ";
     }
     cout << endl;
