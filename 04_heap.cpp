@@ -27,9 +27,9 @@ void heapSort(int arr[], int n) {
 
 int main() {
     int size;
-    cout << "Enter the size of array: ";
+    cout << "Enter the size of the array: ";
     cin >> size;
-    
+
     int arr[size];
     cout << "Enter " << size << " numbers: ";
     for (int i = 0; i < size; ++i) {
@@ -38,7 +38,8 @@ int main() {
 
     heapSort(arr, size);
     cout << "Sorted array: ";
-    for (int i = 0; i < size; ++i)
-        cout << arr[i] << " ";
-    return 0;
+    for (int num : arr) {
+        cout << num << " ";
+    }
+return 0;
 }
