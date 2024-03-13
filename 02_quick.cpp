@@ -27,13 +27,12 @@ void quicksort(int arr[], int lb, int ub)
     }
 }
 
-void printarray(int arr[], int size)
+void printarray(int arr[], int n)
 {
-    for(int a = 0; a < size; a++) 
+    for(int i = 0; i < n; i++) 
     {
-        cout << arr[a] << " ";
+        cout << arr[i] << " ";
     }
-    cout << endl;
 }
 
 int main()
