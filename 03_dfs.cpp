@@ -1,49 +1,48 @@
-#include <iostream>
-#include <list>
-#include <vector>
-
+#include<iostream>
 using namespace std;
 
-class Graph {
-private:
-    int vertices;
-    vector<list<int>> adjacencyList;
+int visited[20], a[20][20], n, i, v;
 
-public:
-    Graph(int V) : vertices(V), adjacencyList(V) {}
-
-    void addEdge(int from, int to) {
-        adjacencyList[from].push_back(to);
-    }
-
-    void DFSUtil(int vertex, vector<bool>& visited) {
-        visited[vertex] = true;
-        cout << vertex << " ";
-
-        for (int neighbor : adjacencyList[vertex]) {
-            if (!visited[neighbor]) {
-                DFSUtil(neighbor, visited);
-            }
+void dfs(int v) {
+    visited[v] = 1;
+    cout << v << " ";
+    for (i = 1; i <= n; i++) {
+        if (a[v][i] && !visited[i]) {
+            dfs(i);
         }
     }
-
-    void DFS(int startVertex) {
-        vector<bool> visited(vertices, false);
-        cout << "DFS starting from vertex " << startVertex << ": ";
-        DFSUtil(startVertex, visited);
-    }
-};
+}
 
 int main() {
-    Graph g(6);
+    int count = 0;
+    n = 4; // Number of vertices
+    // Define the adjacency matrix for the predefined graph
+    int adjMatrix[4][4] = {
+        {0, 1, 1, 0},
+        {1, 0, 0, 1},
+        {1, 0, 0, 1},
+        {0, 1, 1, 0}
+    };
+    // Copy the predefined adjacency matrix to the actual adjacency matrix
+    for (int i = 1; i <= n; i++) {
+        visited[i] = 0;
+        for (int j = 1; j <= n; j++) {
+            a[i][j] = adjMatrix[i - 1][j - 1];
+        }
+    }
+    cout << "DFS Traversal: ";
+    dfs(1); // Start DFS from vertex 1
 
-    g.addEdge(0, 1);
-    g.addEdge(0, 2);
-    g.addEdge(1, 3);
-    g.addEdge(2, 4);
-    g.addEdge(2, 5);
-
-    g.DFS(0);
-
+    for (int i = 1; i <= n; i++) {
+        if (visited[i]) {
+            count++;
+        }
+    }
+    
+    if (count == n) {
+        cout << "\nGraph is connected. ";
+    } else {
+        cout << "\nGraph is disconnected. ";
+    }
     return 0;
 }
