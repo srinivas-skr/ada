@@ -32,9 +32,9 @@ int main() {
     cout << "Enter the size of array: ";
     int size;
     cin >> size;
-    
-    cout << "Enter " << size << " numbers ";
+
     vector<int> arr(size);
+    cout << "Enter " << size << " numbers ";
     for (int i = 0; i < size; ++i) {
         cin >> arr[i];
     }
