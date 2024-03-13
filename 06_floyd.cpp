@@ -6,7 +6,7 @@ const int INF = 999; // Constant representing infinity
 int main() {
     int distances[10][10], n;
 
-    cout << "Enter the number of cities: ";
+    cout << "Enter the number of cities: \n";
     cin >> n;
     
     cout << "Enter the distances between cities (use 999 for infinity and 0 for loop):\n";
