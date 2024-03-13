@@ -3,7 +3,7 @@
 #include <unordered_map>
 using namespace std;
 
-int horspool(string& text, string& pattern) {
+int horspool(string &text, string &pattern) {
     int n = text.size();
     int m = pattern.size();
     if (n < m) return -1;
