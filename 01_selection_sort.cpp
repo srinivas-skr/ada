@@ -25,7 +25,7 @@ int main() {
   cin >> size;
 
   int array[size];
-  cout << "Enter elements: ";
+  cout << "Enter " << size << " elements: ";
   for (int i = 0; i < size; i++) {
     cin >> array[i];
   }
