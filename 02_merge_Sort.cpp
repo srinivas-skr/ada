@@ -12,8 +12,8 @@ void MergeSort(int arr[], int lowerBound, int upperBound) {
 }
 
 void printArray(int arr[], int n) {
-    for (int a = 0; a < n; a++) {
-        cout << arr[a] << " ";
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
     }
 }
 
