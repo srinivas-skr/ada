@@ -3,7 +3,7 @@
 #include <unordered_map>
 using namespace std;
 
-int horspool_search(string& text, string& pattern) {
+int horspool(string& text, string& pattern) {
     int n = text.size();
     int m = pattern.size();
     if (n < m) return -1;
@@ -28,7 +28,7 @@ int main() {
     string text = "This is a sample text for testing the algorithm.";
     string pattern = "sample";
 
-    int result = horspool_search(text, pattern);
+    int result = horspool(text, pattern);
     if (result != -1)
         cout << "Pattern found at position " << result << endl;
     else
