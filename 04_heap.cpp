@@ -1,8 +1,7 @@
 #include <iostream>
-#include <vector>
 using namespace std;
 
-void heapify(vector<int> &arr, int n, int i) {
+void heapify(int arr[], int n, int i) {
     int largest = i;
     int left = 2 * i + 1;
     int right = 2 * i + 2;
@@ -16,9 +15,7 @@ void heapify(vector<int> &arr, int n, int i) {
     }
 }
 
-void heapSort(vector<int> &arr) {
-    int n = arr.size();
-
+void heapSort(int arr[], int n) {
     for (int i = n / 2 - 1; i >= 0; i--)
         heapify(arr, n, i);
         
@@ -29,20 +26,21 @@ void heapSort(vector<int> &arr) {
 }
 
 int main() {
-    cout << "Enter the size of array: ";
     int size;
+    cout << "Enter the size of array: ";
     cin >> size;
-
-    vector<int> arr(size);
-    cout << "Enter " << size << " numbers ";
+    
+    int arr[size];
+    cout << "Enter " << size << " numbers: ";
     for (int i = 0; i < size; ++i) {
         cin >> arr[i];
     }
 
-    heapSort(arr);
+    heapSort(arr, size);
+
     cout << "Sorted array: ";
-    for (int i : arr)
-        cout << i << " ";
+    for (int i = 0; i < size; ++i)
+        cout << arr[i] << " ";
     cout << endl;
     return 0;
 }
