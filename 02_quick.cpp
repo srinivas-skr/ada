@@ -13,7 +13,7 @@ int dividearray(int arr[], int lb, int ub)   // lb= lower bound and ub= upper bo
             swap(arr[i], arr[j]);
         }
     }
-    swap( arr[ub],arr[i]);  
+    swap( arr[lb],arr[i]);  
     return i;
 }
 
