@@ -14,9 +14,9 @@ void nQueen(int k, int n){
     for(int i = 1; i<=n; i++)
         if(place(k, i)){
             x[k] = i;
+           
             if(k == n){
                 count++;
-                
                 for(int j = 1; j<=n; j++){
                     for(int p = 1; p<=n; p++)
                         if(x[j] == p)
