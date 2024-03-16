@@ -50,28 +50,21 @@ void mergeSort(int a[], int lb, int ub) {
     }
 }
 
-void mergeSort(int a[], int beg, int end) {
-    if (beg < end) {
-        int mid = (beg + end) / 2;
-        mergeSort(a, beg, mid);
-        mergeSort(a, mid + 1, end);
-        merge(a, beg, mid, end);
-    }
-}
-
 int main() {
-  int size;
-  cout << "Enter the size of the array: "; // Modified to prompt user for input
-  cin >> size;
+    int size;
+    cout << "Enter the size of the array: ";
+    cin >> size;
 
-  int array[size];
-  cout << "Enter " << size << " elements of the array: "; 
-  for (int i = 0; i < size; i++) {
-    cin >> array[i];
-  }
+    int array[size];
+    cout << "Enter " << size << " elements of the array: ";
+    for (int i = 0; i < size; i++) {
+        cin >> array[i];
+    }
   
-mergeSort(a, 0, n - 1);
-  cout << "Sorted array: ";
-  printArray(array, size);
-  return 0;
+    mergeSort(array, 0, size - 1); 
+    cout << "Sorted array: ";
+    for (int i = 0; i < size; i++) {
+        cout << array[i] << " ";
+    }
+    return 0;
 }
