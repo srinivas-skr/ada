@@ -50,6 +50,12 @@ void mergeSort(int a[], int lb, int ub) {
     }
 }
 
+void printArray(int arr[], int size) {
+    for (int i = 0; i < size; i++) {
+        cout << arr[i] << " ";
+    }
+}
+
 int main() {
     int size;
     cout << "Enter the size of the array: ";
@@ -63,8 +69,6 @@ int main() {
   
     mergeSort(array, 0, size - 1); 
     cout << "Sorted array: ";
-    for (int i = 0; i < size; i++) {
-        cout << array[i] << " ";
-    }
+    printArray(array, size); 
     return 0;
 }
