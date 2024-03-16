@@ -4,9 +4,9 @@ using namespace std;
 void selectionSort(int arr[], int n) {
   for (int i = 0; i < n - 1; i++) {
     int minIndex = i;
-    for (int j = i + 1; j < n; j++) {
+    for (int com = i + 1; com < n; com++) {
       if (arr[j] < arr[minIndex]) {
-        minIndex = j;
+        minIndex = com;
       }
     }
     swap(arr[i], arr[minIndex]);
