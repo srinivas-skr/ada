@@ -60,18 +60,18 @@ void mergeSort(int a[], int beg, int end) {
 }
 
 int main() {
-    int a[] = {5, 9, 2, 7, 1, 3};
-    int n = sizeof(a) / sizeof(a[0]);
-    
-    cout << "Elements before sorting: ";
-    for (int i = 0; i < n; i++)
-        cout << a[i] << " ";
-    
-    mergeSort(a, 0, n - 1);
-    
-    cout << "\nElements after sorting: ";
-    for (int i = 0; i < n; i++)
-        cout << a[i] << " ";
-    
-    return 0;
+  int size;
+  cout << "Enter the size of the array: "; // Modified to prompt user for input
+  cin >> size;
+
+  int array[size];
+  cout << "Enter " << size << " elements of the array: "; 
+  for (int i = 0; i < size; i++) {
+    cin >> array[i];
+  }
+  
+mergeSort(a, 0, n - 1);
+  cout << "Sorted array: ";
+  printArray(array, size);
+  return 0;
 }
