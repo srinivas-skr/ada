@@ -2,15 +2,15 @@
 using namespace std;
 
 void insertionSort(int arr[], int n) {
-  for (int j = 1; j < n; j++) {
-    int key = arr[j];
-    int i = j - 1;
+  for (int i = 1; i < n; i++) {
+    int key = arr[i];
+    int sh = i - 1;
 
-    while (i >= 0 && arr[i] > key) {
-      arr[i + 1] = arr[i];
-      i--;
+    while (sh >= 0 && arr[sh] > key) {
+      arr[sh + 1] = arr[sh];
+      sh--;
     }
-    arr[i + 1] = key;
+    arr[sh + 1] = key;
   }
 }
 
