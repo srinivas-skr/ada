@@ -3,7 +3,7 @@ using namespace std;
 
 void merge(int a[], int lb, int mid, int ub) {
     int i, j, k;
-    int n1 = mid - lb + 1;
+    int n1 = mid - lb ;
     int n2 = ub - mid;
     
     int LeftArray[n1], RightArray[n2];
