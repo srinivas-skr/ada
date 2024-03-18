@@ -3,8 +3,8 @@ using namespace std;
 
 void merge(int a[], int lb, int mid, int ub) {
     int i, j, k;
-    int s1 = mid - lb+1 ;
-    int s2 = ub - mid;
+    int s1 = mid - lb+1 ; //cause it starts from 0 arr
+    int s2 = ub - mid; //not here 
     
     int LeftArray[s1], RightArray[s2];
     
