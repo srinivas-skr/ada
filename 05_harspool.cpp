@@ -1,37 +1,46 @@
 #include <iostream>
 #include <string>
-#include <unordered_map>
+
 using namespace std;
 
-int horspool(string &text, string &pattern) {
-    int n = text.size();
-    int m = pattern.size();
-    if (n < m) return -1;
-
-    unordered_map<char, int> bad_char_shift;
-    for (int i = 0; i < m - 1; ++i)
-        bad_char_shift[pattern[i]] = m - 1 - i;
-
-    for (int i = m - 1; i < n;) {
-        int j = m - 1;
-        while (j >= 0 && text[i] == pattern[j]) {
-            --i;
-            --j;
-        }
-        if (j < 0) return i + 1;
-        i += bad_char_shift[text[i]] > 0 ? bad_char_shift[text[i]] : m;
+void ShiftTable(const string& P, int m, int Table[]) {
+    int size = 256; // Assuming ASCII characters
+    for (int i = 0; i < size; ++i) {
+        Table[i] = m;
     }
-    return -1;
+    for (int j = 0; j < m - 1; ++j) {
+        Table[P[j]] = m - 1 - j;
+    }
+}
+
+int HorspoolMatching(const string& P, const string& T) {
+    int m = P.size();
+    int n = T.size();
+    int Table[256]; // Assuming ASCII characters
+    ShiftTable(P, m, Table);
+    int i = m - 1;
+    while (i <= n - 1) {
+        int k = 0;
+        while (k <= m - 1 && P[m - 1 - k] == T[i - k]) {
+            k++;
+        }
+        if (k == m) {
+            return i - m + 1; // Match found
+        } else {
+            i += Table[T[i]];
+        }
+    }
+    return -1; // No match found
 }
 
 int main() {
-    string text = "This is a sample text for testing the algorithm.";
-    string pattern = "sample";
-
-    int result = horspool(text, pattern);
-    if (result != -1)
-        cout << "Pattern found at position " << result << endl;
-    else
+    string pattern = "algorithm";
+    string text = "Implementing Horspool's algorithm for string matching";
+    int index = HorspoolMatching(pattern, text);
+    if (index != -1) {
+        cout << "Pattern found at index: " << index << endl;
+    } else {
         cout << "Pattern not found in the text." << endl;
+    }
     return 0;
 }
