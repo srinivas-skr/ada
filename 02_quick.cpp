@@ -5,7 +5,7 @@ int dividearray(int arr[], int lb, int ub)   // lb= lower bound and ub= upper bo
 {
     int pivot = arr[lb];
     int i = lb;
-    for(int j = i + 1; j <= ub; j++)
+    for(int j = i + 1; j < ub; j++)
     {
         if(arr[j] < pivot)
         {
