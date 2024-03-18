@@ -3,21 +3,21 @@ using namespace std;
 
 void merge(int a[], int lb, int mid, int ub) {
     int i, j, k;
-    int n1 = mid - lb+1 ;
-    int n2 = ub - mid;
+    int s1 = mid - lb+1 ;
+    int s2 = ub - mid;
     
-    int LeftArray[n1], RightArray[n2];
+    int LeftArray[s1], RightArray[s2];
     
-    for (i = 0; i < n1; i++)
+    for (i = 0; i < s1; i++)
         LeftArray[i] = a[lb + i];
-    for (j = 0; j < n2; j++)
+    for (j = 0; j < s2; j++)
         RightArray[j] = a[mid + 1 + j];
     
     i = 0;
     j = 0;
     k = lb;
     
-    while (i < n1 && j < n2) {
+    while (i < s1 && j < s2) {
         if (LeftArray[i] <= RightArray[j]) {
             a[k] = LeftArray[i];
             i++;
@@ -28,13 +28,13 @@ void merge(int a[], int lb, int mid, int ub) {
         k++;
     }
     
-    while (i < n1) {
+    while (i < s1) {
         a[k] = LeftArray[i];
         i++;
         k++;
     }
     
-    while (j < n2) {
+    while (j < s2) {
         a[k] = RightArray[j];
         j++;
         k++;
