@@ -4,17 +4,17 @@ using namespace std;
 int dividearray(int arr[], int lb, int ub)   // lb= lower bound and ub= upper bound
 {
     int pivot = arr[lb];
-    int i = lb;
-    for(int j = i + 1; j < ub; j++)
+    int pos = lb;
+    for(int i = pos + 1; i <= ub; i++)
     {
-        if(arr[j] < pivot)
+        if(arr[i] < pivot)
         {
-            i++;
-            swap(arr[i], arr[j]);
+            pos++;
+            swap(arr[pos], arr[i]);
         }
     }
-    swap( arr[lb],arr[i]);  
-    return i;
+    swap( arr[lb],arr[pos]);  
+    return pos;
 }
 
 void quicksort(int arr[], int lb, int ub)
