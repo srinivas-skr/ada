@@ -2,10 +2,10 @@
 #include <string>
 
 using namespace std;
+const int Size = 256; // Assuming ASCII characters
 
 void ShiftTable(const string& P, int m, int Table[]) {
-    int size = 256; // Assuming ASCII characters
-    for (int i = 0; i < size; ++i) {
+    for (int i = 0; i < Size; ++i) {
         Table[i] = m;
     }
     for (int j = 0; j < m - 1; ++j) {
@@ -16,7 +16,7 @@ void ShiftTable(const string& P, int m, int Table[]) {
 int HorspoolMatching(const string& P, const string& T) {
     int m = P.size();
     int n = T.size();
-    int Table[256]; // Assuming ASCII characters
+    int Table[Size]; // Using the defined constant Size
     ShiftTable(P, m, Table);
     int i = m - 1;
     while (i <= n - 1) {
