@@ -5,10 +5,10 @@ using namespace std;
 const int Size = 256; // Assuming ASCII characters
 
 void ShiftTable(const string& P, int m, int Table[]) {
-    for (int i = 0; i < Size; ++i) {
+    for (int i = 0; i < Size; i++) {
         Table[i] = m;
     }
-    for (int j = 0; j < m - 1; ++j) {
+    for (int j = 0; j < m - 1; j++) {
         Table[P[j]] = m - 1 - j;
     }
 }
