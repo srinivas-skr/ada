@@ -34,8 +34,12 @@ int HorspoolMatching(const string& P, const string& T) {
 }
 
 int main() {
-    string pattern = "algorithm";
-    string text = "Implementing Horspool's algorithm for string matching";
+    string pattern, text;
+    cout << "Enter the pattern: ";
+    getline(cin, pattern);
+    cout << "Enter the text: ";
+    getline(cin, text);
+    
     int index = HorspoolMatching(pattern, text);
     if (index != -1) {
         cout << "Pattern found at index: " << index << endl;
