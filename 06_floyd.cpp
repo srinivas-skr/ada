@@ -15,10 +15,16 @@ int main() {
             cin >> distances[i][j];
 
     // Floyd-Warshall algorithm to find the shortest paths between cities
-    for (int k = 0; k < n; k++)
-        for (int i = 0; i < n; i++)
-            for (int j = 0; j < n; j++)
-                distances[i][j] = min(distances[i][j], distances[i][k] + distances[k][j]);
+    for (int k = 0; k < n; k++) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                // Check if there is a shorter path from city i to city j through city k
+                if (distances[i][k] != INF && distances[k][j] != INF && distances[i][k] + distances[k][j] < distances[i][j]) {
+                    distances[i][j] = distances[i][k] + distances[k][j]; // Update the shortest distance
+                }
+            }
+        }
+    }
 
     cout << "Shortest paths between cities:\n";
     for (int i = 0; i < n; i++) {
