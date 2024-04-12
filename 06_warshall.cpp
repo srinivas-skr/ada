@@ -1,30 +1,30 @@
 #include<iostream>
 using namespace std;
 
-void warshall(int a[][20], int n){
+void warshall(int distance[][20], int n){
     for(int k = 0; k < n; k++)
         for(int i = 0; i < n; i++)
             for(int j = 0; j < n; j++)
-                a[i][j] = a[i][j] || (a[i][k] && a[k][j]);
+                distance[i][j] = distance[i][j] || (distance[i][k] && distance[k][j]);
     
     cout<<"\nPath matrix: "<<endl;
     for(int i = 0; i < n; i++){
-            for(int j = 0; j < n; j++)
-                cout<<a[i][j]<<"\t";
-            cout<<endl;
+        for(int j = 0; j < n; j++)
+            cout<<distance[i][j]<<"\t";
+        cout<<endl;
     }
 }
 
 int main(){
-    int n, a[20][20];
+    int n, distance[20][20];
     cout<<"No. of vertices: ";
     cin>>n;
     
-    cout<<"\adjacency matrix: ";
+    cout<<"\nAdjacency matrix: ";
     for(int i = 0; i < n; i++)
-            for(int j = 0; j < n; j++)
-                cin>>a[i][j];
+        for(int j = 0; j < n; j++)
+            cin>>distance[i][j];
     
-    warshall(a, n);
+    warshall(distance, n);
     return 0;
 }
