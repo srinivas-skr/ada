@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int a[20][20], q[20], visited[20], n, i, j, f = 0, r = -1;
+int adj[20][20], q[20], visited[20], n, i, j, f = 0, r = -1;
 
 void bfs(int v) {
     for (i = 1; i <= n; i++)
@@ -25,7 +25,7 @@ int main() {
     cout << "\n Enter adjacency matrix:\n";
     for (i = 1; i <= n; i++)
         for (j = 1; j <= n; j++)
-            cin >> a[i][j];
+            cin >> adj[i][j];
     cout << "\n Enter the starting vertex:";
     cin >> v;
     bfs(v);
