@@ -41,6 +41,5 @@ d[i] = d[u] + a[u][i];
     
 cout<<"\nShortest distance from "<<v<<" is "<<endl;
 for (i = 2; i<=n; i++)
-cout<<v<<"--->"<<i<<"="<<d[i]<<endl;
-    
+cout<<v<<"--->"<<i<<"="<<d[i]<<endl;   
 }
