@@ -3,9 +3,10 @@ using namespace std;
 int count = 0, x[100];
 
 int place (int r, int c){        // Function to check if it's possible to place a queen at a specific position
-    for (int j = 1; j < r; j++)  // Iterate over all the previously placed queens
-        if ((x[j] == c) || (abs(x[j] - c) == abs(j - r)))     // Check for conflicts in the same column or diagonal
-            return 0;   // Conflict found
+    for (int j = 1; j < r; j++) {  // Iterate over all the previously placed queens
+        if ((x[j] == c) || (abs(x[j] - c) == abs(j - r))) {    // Check for conflicts in the same column or diagonal
+            return 0;  // Conflict found
+        } }                    
     return 1;    // No conflict found
 }
 
