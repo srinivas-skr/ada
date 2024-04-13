@@ -2,17 +2,17 @@
 using namespace std;
 int count = 0, x[100];
 
-int place(int r, int c) {        // Function to check if it's possible to place a queen at a specific position
-    for (int j = 1; j < r; j++)        // Iterate over all the previously placed queens
-        if ((x[j] == c) || (abs(x[j] - c) == abs(j - r)))                  // Check for conflicts in the same column or diagonal
-            return 0;   // Conflict found, not a safe position
-    return 1;          // No conflict found, safe position
+int place (int r, int c){        // Function to check if it's possible to place a queen at a specific position
+    for (int j = 1; j < r; j++)  // Iterate over all the previously placed queens
+        if ((x[j] == c) || (abs(x[j] - c) == abs(j - r)))     // Check for conflicts in the same column or diagonal
+            return 0;   // Conflict found
+    return 1;    // No conflict found
 }
 
 void nQueen(int r, int n) {     // Recursive function to find solutions for the N-Queens problem
    
     for (int c = 1; c <= n; c++)  {
-        if (place(r, c)) {      // Check if it's possible to place a queen at the current position
+        if ( place (r, c) ) {      // Check if it's possible to place a queen at the current position
             x[r] = c;
             
             if (r == n) {
