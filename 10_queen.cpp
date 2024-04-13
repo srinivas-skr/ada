@@ -2,47 +2,50 @@
 using namespace std;
 int count = 0, x[100];
 
-int place(int k,int i){     //checking if we can place kth queen in ith position
-    for(int j = 1; j<k; j++)
-        if((x[j] == i) || (abs(x[j]-i) == abs(j-k)))
-            return 0;
-    return 1;
+int place(int r, int c) {        // Function to check if it's possible to place a queen at a specific position
+    for (int j = 1; j < r; j++)        // Iterate over all the previously placed queens
+        if ((x[j] == c) || (abs(x[j] - c) == abs(j - r)))                  // Check for conflicts in the same column or diagonal
+            return 0;   // Conflict found, not a safe position
+    return 1;          // No conflict found, safe position
 }
 
-void nQueen(int k, int n){
-    
-    for(int i = 1; i<=n; i++)
-        if(place(k, i)){
-            x[k] = i;
-           
-            if(k == n){
+void nQueen(int r, int n) {     // Recursive function to find solutions for the N-Queens problem
+   
+    for (int c = 1; c <= n; c++)  {
+        if (place(r, c)) {      // Check if it's possible to place a queen at the current position
+            x[r] = c;
+            
+            if (r == n) {
                 count++;
-                for(int j = 1; j<=n; j++){
-                    for(int p = 1; p<=n; p++)
-                        if(x[j] == p)
-                            cout<<"Q";
+                for (int j = 1; j <= n; j++) {
+                    for (int p = 1; p <= n; p++) {
+                        if (x[j] == p)
+                            cout << "Q"; // Queen placed at this position
                         else
-                            cout<<"0";
-                    cout<<endl;
+                            cout << "0"; // Empty position
+                    }
+                    cout << endl;
                 }
+                cout << endl;
             }
-            else
-                nQueen(k+1, n);
+            
+            else {
+                nQueen(r + 1, n);    // Recursively explore the next row
+            }
         }
-        cout<<endl;
+    }
 }
 
-int main(){
+int main() {
     int n;
-    cout<<"Enter number of queens: ";
-    cin>>n;
+    cout << "Enter number of queens: ";
+    cin >> n;
+    
     nQueen(1, n);
-    if(count == 0)
-        cout<<"\nNo solution";
-    else
-        cout<<"Number of solutions: "<<count;
-}
 
-/* output
-Enter number of queens: 4
-    */
+    if (count == 0)                    // Print the number of solutions found
+        cout << "\nNo solution";
+    else
+        cout << "Number of solutions: " << count;
+    return 0;
+}
