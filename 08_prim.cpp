@@ -11,11 +11,14 @@ void prim() {
         min = 99;
         for (i = 1; i <= n; i++)
             for (j = 1; j <= n; j++)
-                if (visited[i] && !visited[j] && min > c[i][j]) {
+                if (visited[i] && !visited[j] && c[i][j] != 0 && min > c[i][j]) { // Updated condition to exclude edges with weight 0
                     min = c[i][j];
                     a = i;
                     b = j;
                 }
+
+        if(min == 99) // If min is not updated, no more edges can be added to the MST
+            break;
 
         cout << a << " ---> " << b << " = " << c[a][b] << endl;
         cost = cost + c[a][b];
@@ -35,8 +38,11 @@ int main() {
             cin >> c[i][j];
         visited[i] = 0;
     }
+    
     prim();
+    return 0;
 }
+
 
 /* output
 how many vertices? 4
