@@ -28,3 +28,19 @@ int main(){
     warshall(distance, n);
     return 0;
 }
+
+/* output
+
+No. of vertices: 4
+Adjacency matrix:
+0       1       0       0
+0       0       0       1
+0       0       0       0
+1       0       1       0
+
+Path matrix: 
+1       1       1       1
+1       1       1       1
+0       0       0       0
+1       1       1       1
+*/
