@@ -4,7 +4,7 @@ int n, c[20][20], i, j, visited[20];
 
 void prim()
 {
-  int min, a, b, k, count = 0, cost = 0;
+  int min, a, b, count = 0, cost = 0;
   min = 99;
   visited[1] = 1;
     
