@@ -1,10 +1,10 @@
 #include <iostream>
 using namespace std;
 
-void selectionSort(int arr[], int n) {
-  for (int i = 0; i < n - 1; i++) {
+void selectionSort(int arr[], int size) {
+  for (int i = 0; i < size - 1; i++) {
     int minIndex = i;
-    for (int com = i + 1; com < n; com++) {
+    for (int com = i + 1; com < size; com++) {
       if (arr[com] < arr[minIndex]) {
         minIndex = com;
       }
