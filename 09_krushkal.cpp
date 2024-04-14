@@ -54,3 +54,19 @@ cost[x][y] = cost[y][x] = 99;
 }
 cout<<"Total cost: "<<tot;
 }
+
+/*output
+No. Of vertices: 5
+Enter cost matrix:
+99   1   7  10  5
+ 1  99   3  99  99
+ 7   3  99   4  99
+10  99   4  99   2
+ 5  99  99   2  99
+ 
+01--->2=1
+4--->5=2
+2--->3=3
+3--->4=4
+Total cost: 10 
+ */
