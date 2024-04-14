@@ -33,7 +33,8 @@ u = i;
 }
     
 s[u] = 1;
-for(i = 1; i<=n; i++) if(s[i]==0){
+for(i = 1; i<=n; i++) 
+if(s[i]==0) {
 if(d[i] > (d[u] + a[u][i]))
 d[i] = d[u] + a[u][i];
 }
