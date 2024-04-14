@@ -2,10 +2,13 @@
 using namespace std;
 
 void selectionSort(int arr[], int size) {
-  for (int i = 0; i < size - 1; i++) {
+  for (int i = 0; i < size - 1; i++) 
+  {
     int minIndex = i;
-    for (int com = i + 1; com < size; com++) {
-      if (arr[com] < arr[minIndex]) {
+    for (int com = i + 1; com < size; com++) 
+    {
+      if (arr[com] < arr[minIndex])
+      {
         minIndex = com;
       }
     }
