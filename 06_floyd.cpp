@@ -36,9 +36,11 @@ int main() {
     return 0;
 }
 
-/*
+
+/* output
 Enter the number of cities: 
 4
+
 Enter the distances between cities (use 999 for infinity and 0 for loop):
 0 2 999 10
 999 0 3 999
