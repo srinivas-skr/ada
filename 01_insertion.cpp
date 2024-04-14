@@ -1,8 +1,8 @@
 #include <iostream>
 using namespace std;
 
-void insertionSort(int arr[], int n) {
-  for (int i = 1; i < n; i++) {
+void insertionSort(int arr[], int size) {
+  for (int i = 1; i < size; i++) {
     int key = arr[i];
     int sh = i - 1;
 
@@ -14,8 +14,8 @@ void insertionSort(int arr[], int n) {
   }
 }
 
-void printArray(int arr[], int n) {
-  for (int i = 0; i < n; i++) {
+void printArray(int arr[], int size) {
+  for (int i = 0; i < size; i++) {
     cout << arr[i] << " ";
   }
 }
