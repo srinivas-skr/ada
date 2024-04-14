@@ -16,7 +16,7 @@ void selectionSort(int arr[], int size) {
   }
 }
 
-void printArray(int arr[], int n) {
+void printArray(int arr[], int size) {
   for (int i = 0; i < n; i++) {
     cout << arr[i] << " ";
   }
