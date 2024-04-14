@@ -31,7 +31,7 @@ int main() {
         for (int j = 0; j < n; j++) {
             cout << distances[i][j] << "\t";
         }
-        cout << "\n";
+        cout << endl;
     }
     return 0;
 }
@@ -43,4 +43,12 @@ Enter the distances between cities (use 999 for infinity and 0 for loop):
 0 2 999 10
 999 0 3 999
 999 999 0 7
-999 999 999 0*/
+999 999 999 0
+
+Shortest paths between cities:
+0       2       5       10
+999     0       3       10
+999     999     0       7
+999     999     999     0
+
+*/
