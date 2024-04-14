@@ -35,7 +35,7 @@ int main()
    cout<<"How many vertices? ";
    cin>>n;
     
-   cout<<"\nEnter cost matrix: ";
+   cout<<"\nEnter cost matrix: (99 for loop and no edge) ";
    for(i = 1; i<=n; i++)
    {
      for(j = 1; j<=n; j++)
@@ -45,3 +45,14 @@ int main()
     
    prim();
 }
+
+/* 
+
+No. Of vertices: 5
+Enter cost matrix:
+99 2 5 99 99
+2 99 3 4 99
+5 3 99 6 7
+99 4 6 99 8
+99 99 6 8 99 
+*/
