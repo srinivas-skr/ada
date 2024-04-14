@@ -4,15 +4,15 @@ using namespace std;
 void selectionSort(int arr[], int size) {
   for (int i = 0; i < size - 1; i++) 
   {
-    int minIndex = i;
+    int min = i;
     for (int com = i + 1; com < size; com++) 
     {
-      if (arr[com] < arr[minIndex])
+      if (arr[com] < arr[min])
       {
-        minIndex = com;
+        min = com;
       }
     }
-    swap(arr[i], arr[minIndex]);
+    swap(arr[i], arr[min]);
   }
 }
 
